@@ -5,6 +5,7 @@ require('babel/register')({
 
 var path = require('path');
 var rootDir = path.resolve(__dirname);
+
 /**
  * Define isomorphic constants.
  */
