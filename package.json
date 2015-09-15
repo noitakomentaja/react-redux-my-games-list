@@ -90,7 +90,8 @@
     "start-dev": "node ./node_modules/better-npm-run start-dev",
     "watch-client": "node ./node_modules/better-npm-run watch-client",
     "dev": "concurrent --kill-others \"npm run watch-client\" \"npm run start-dev\"",
-    "test": "karma start"
+    "test": "karma start",
+    "postinstall": "npm run build"
   },
   "betterScripts": {
     "start": {
