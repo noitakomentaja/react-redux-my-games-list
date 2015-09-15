@@ -91,7 +91,7 @@
     "watch-client": "node ./node_modules/better-npm-run watch-client",
     "dev": "concurrent --kill-others \"npm run watch-client\" \"npm run start-dev\"",
     "test": "karma start",
-    "postinstall": "npm run build"
+    "postinstall": "webpack --verbose --colors --display-error-details --config webpack/prod.config.js"
   },
   "betterScripts": {
     "start": {
