@@ -52,11 +52,11 @@ export default function games(state = initialState, action = {}) {
 				.set('isLoading', false);
 		case GAMES_DELETE_SUCCESSFULL: 
 			// Remove game from map by id
-			const changes = state.get('games').delete(String(action.result.id));
+			const deleteChanges = state.get('games').delete(String(action.result.id));
 
 			return state
 				.set('isLoading', false)
-				.set('games', changes);
+				.set('games', deleteChanges);
 		case GAMES_ADD_REQUEST:
 			return state
 				.set('isLoading', true);
@@ -66,10 +66,10 @@ export default function games(state = initialState, action = {}) {
 		case GAMES_ADD_SUCCESSFULL:
 			// Add immutable object of added game item to immutable games map
 			const addedGame = Immutable.fromJS(action.result.game);
-			const changes = state.get('games').set(String(addedGame.get('id')), addedGame);
+			const addChanges = state.get('games').set(String(addedGame.get('id')), addedGame);
 
 			return state
-				.set('games', changes)
+				.set('games', addChanges)
 				.set('isLoading', false);				
 		case GAMES_UPDATE_REQUEST:
 			return state
@@ -80,10 +80,10 @@ export default function games(state = initialState, action = {}) {
 		case GAMES_UPDATE_SUCCESSFULL:
 			// Update immutable object of changed game item to immutable games map		
 			const updatedGame = Immutable.fromJS(action.result.game);
-			const changes = state.get('games').set(String(updatedGame.get('id')), updatedGame);
+			const updateChanges = state.get('games').set(String(updatedGame.get('id')), updatedGame);
 
 			return state
-				.set('games', changes)			
+				.set('games', updateChanges)			
 				.set('isLoading', false);
 		default:
 			return state;
